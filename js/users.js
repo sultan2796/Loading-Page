@@ -4,6 +4,12 @@ const initialUsers = [
     "soyad": "Tagiyev",
     "eposta": "ornek@mail.com",
     "sifre": "12345678"
+  },
+  {
+    "ad": "Ali",
+    "soyad": "Turk",
+    "eposta": "ali@gmail.com",
+    "sifre": "ali123456"
   }
 ];
 

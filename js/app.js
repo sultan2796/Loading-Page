@@ -5,7 +5,7 @@ function showToast(message, duration = 3000) {
     toastContainer.className = "toast-container";
     document.body.appendChild(toastContainer);
   }
-
+  
   const toast = document.createElement("div");
   toast.className = "toast";
   toast.innerHTML = `
