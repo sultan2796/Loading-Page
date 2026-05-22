@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nexus - Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+</head>
+<body class="dashboard-body">
+  <header class="mobile-header">
+    <span class="mobile-brand">Nexus</span>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </header>
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeMobileMenu()"></div>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+            <polygon points="12,2 22,20 2,20"/>
+          </svg>
+        </div>
+        <span>Nexus</span>
+      </div>
+      
+      <div class="sidebar-user-card">
+        <div id="sidebarAvatar" class="avatar-preview small">S</div>
+        <div class="user-meta">
+          <span id="sidebarUserName" class="user-name">İstifadəçi</span>
+          <span class="user-role">İstifadəçi</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#" class="menu-item active" onclick="switchDashboardTab('panel', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Panel
+        </a>
+        <a href="#" class="menu-item" onclick="switchDashboardTab('profil', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          Profil
+        </a>
+        <a href="#" class="menu-item" onclick="switchDashboardTab('ayarlar', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Ayarlar
+        </a>
+      </nav>
+      <button class="btn-logout" onclick="logoutUser()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        Çıxış Et
+      </button>
+    </aside>
+    <main class="dashboard-main">
+      <div id="tab-panel" class="tab-content">
+        <header class="dashboard-header">
+          <div class="welcome-text">
+            <h1>Xoş gəldiniz, <span id="userName">İstifadəçi</span>! 👋</h1>
+            <p>Sistemdəki ümumi vəziyyət və gedişat aşağıdakı kimidir.</p>
+          </div>
+        </header>
+
+        <section class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <h3>Ümumi Balans</h3>
+              <div class="stat-icon">₼</div>
+            </div>
+            <p class="stat-value">₼ 2,450.00</p>
+            <div class="stat-footer">
+              <span class="stat-badge plus">+12.5%</span>
+              <span class="stat-lbl">bu ay artım</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <h3>Tamamlanan Layihələr</h3>
+              <div class="stat-icon">✓</div>
+            </div>
+            <p class="stat-value">12 / 15</p>
+            <div class="stat-footer">
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 80%;"></div>
+              </div>
+              <span class="stat-lbl" style="margin-left: 8px;">80%</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <h3>Sistem Statusu</h3>
+              <div class="stat-icon pulse">●</div>
+            </div>
+            <p class="stat-value">99.9%</p>
+            <div class="stat-footer">
+              <span class="stat-badge online">Gecikmə: 14ms</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="dashboard-grid-two">
+          <div class="stat-card analytical-chart-card">
+            <div class="chart-header">
+              <div class="chart-title-group">
+                <h3>Həftəlik Statistika</h3>
+                <span class="chart-subtitle">Giriş və fəallıq göstəriciləri</span>
+              </div>
+              <div class="chart-legend">
+                <span class="legend-item"><span class="legend-color p-color"></span>Fəallıq</span>
+              </div>
+            </div>
+            <div class="visual-chart-container">
+              <div class="chart-bar-col">
+                <div class="chart-bar-fill g-purple" style="height: 60%;"><span class="chart-tooltip">60%</span></div>
+                <span class="chart-day">B.</span>
+              </div>
+              <div class="chart-bar-col">
+                <div class="chart-bar-fill g-purple" style="height: 45%;"><span class="chart-tooltip">45%</span></div>
+                <span class="chart-day">Ç.a.</span>
+              </div>
+              <div class="chart-bar-col">
+                <div class="chart-bar-fill g-purple" style="height: 85%;"><span class="chart-tooltip">85%</span></div>
+                <span class="chart-day">Ç.</span>
+              </div>
+              <div class="chart-bar-col">
+                <div class="chart-bar-fill g-purple" style="height: 70%;"><span class="chart-tooltip">70%</span></div>
+                <span class="chart-day">C.a.</span>
+              </div>
+              <div class="chart-bar-col">
+                <div class="chart-bar-fill g-purple" style="height: 95%;"><span class="chart-tooltip">95%</span></div>
+                <span class="chart-day">C.</span>
+              </div>
+              <div class="chart-bar-col">
+                <div class="chart-bar-fill g-purple" style="height: 30%;"><span class="chart-tooltip">30%</span></div>
+                <span class="chart-day">Ş.</span>
+              </div>
+              <div class="chart-bar-col">
+                <div class="chart-bar-fill g-purple" style="height: 20%;"><span class="chart-tooltip">20%</span></div>
+                <span class="chart-day">B.a.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-right-column">
+            <div class="stat-card">
+              <h3>Sürətli Əməliyyatlar</h3>
+              <div class="quick-actions-grid">
+                <button class="action-tile" onclick="switchDashboardTab('profil', document.querySelectorAll('.menu-item')[1])">
+                  <div class="tile-icon">👤</div>
+                  <span>Profil Redaktəsi</span>
+                </button>
+                <button class="action-tile" onclick="switchDashboardTab('ayarlar', document.querySelectorAll('.menu-item')[2])">
+                  <div class="tile-icon">⚙️</div>
+                  <span>Ayarlar</span>
+                </button>
+                <button class="action-tile lock-tile" onclick="lockSession()">
+                  <div class="tile-icon">🔒</div>
+                  <span>Kilidlə</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="stat-card margin-top-card">
+              <h3>Son Fəaliyyətlər</h3>
+              <div id="activity-log-container" class="activity-timeline"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-profil" class="tab-content hidden">
+        <header class="dashboard-header">
+          <div class="welcome-text">
+            <h1>Profil Məlumatları 👤</h1>
+            <p>Hesab məlumatlarınızı və avatarınızı buradan yeniləyə bilərsiniz.</p>
+          </div>
+        </header>
+        <section class="profile-card">
+          <div class="avatar-section">
+            <div id="currentAvatar" class="avatar-preview large">S</div>
+            <div class="avatar-info">
+              <h3>Avatar Stiliniz</h3>
+              <p>Aşağıdakı qradientlərdən birini seçərək şəxsi üslubunuzu təyin edin.</p>
+              <div class="avatar-options">
+                <div class="avatar-option g-purple" onclick="setAvatarGradient('g-purple')"></div>
+                <div class="avatar-option g-sunset" onclick="setAvatarGradient('g-sunset')"></div>
+                <div class="avatar-option g-ocean" onclick="setAvatarGradient('g-ocean')"></div>
+                <div class="avatar-option g-neon" onclick="setAvatarGradient('g-neon')"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label>Ad</label>
+              <input type="text" id="profileAd" />
+            </div>
+            <div class="field">
+              <label>Soyad</label>
+              <input type="text" id="profileSoyad" />
+            </div>
+          </div>
+          <div class="field">
+            <label>E-poçt</label>
+            <input type="email" id="profileEposta" />
+          </div>
+          <button class="btn-update" onclick="updateProfile()">Məlumatları Yenilə</button>
+        </section>
+      </div>
+
+      <div id="tab-ayarlar" class="tab-content hidden">
+        <header class="dashboard-header">
+          <div class="welcome-text">
+            <h1>Təhlükəsizlik və Ayarlar ⚙️</h1>
+            <p>Hesab parametrlərinizi tənzimləyin və görünüşü dəyişin.</p>
+          </div>
+        </header>
+        <section class="profile-card">
+          <div class="settings-theme-section">
+            <div class="theme-info">
+              <h3>Görünüş Mövzu Mövqeyi</h3>
+              <p>Sistem görünüşünü seçin (Açıq və ya Tünd mövzu).</p>
+            </div>
+            <div class="theme-toggle-btns">
+              <button id="theme-btn-dark" class="theme-toggle-btn active" onclick="setDashboardTheme('dark')">Tünd</button>
+              <button id="theme-btn-light" class="theme-toggle-btn" onclick="setDashboardTheme('light')">Açıq</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Cari Şifrə</label>
+            <input type="password" id="settingsCurrentPass" placeholder="••••••••" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Yeni Şifrə</label>
+              <input type="password" id="settingsNewPass" placeholder="••••••••" />
+            </div>
+            <div class="field">
+              <label>Yeni Şifrənin Təkrarı</label>
+              <input type="password" id="settingsConfirmPass" placeholder="••••••••" />
+            </div>
+          </div>
+          <button class="btn-update" onclick="changePassword()">Şifrəni Yenilə</button>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="lockOverlay" class="session-lock-overlay">
+    <div class="lock-card">
+      <div id="lockScreenAvatar" class="lock-avatar">S</div>
+      <h2 id="lockScreenUser">İstifadəçi</h2>
+      <p>Sessiya müvəqqəti kilidlənib. Kilidi açmaq üçün şifrənizi daxil edin.</p>
+      <div class="field">
+        <input type="password" id="lockScreenPass" placeholder="••••••••" />
+      </div>
+      <button class="btn-update" onclick="unlockSession()">Kilidi Aç</button>
+    </div>
+  </div>
+
+  <script src="./js/dashboard.js"></script>
+</body>
+</html>

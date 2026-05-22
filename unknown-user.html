@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilinməyən İstifadəçi</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="unknown-container">
+      <div class="unknown-icon-box">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <line x1="17" y1="8" x2="22" y2="13"></line>
+          <line x1="22" y1="8" x2="17" y2="13"></line>
+        </svg>
+      </div>
+      <h1 class="unknown-title">İstifadəçi Tapılmadı</h1>
+      <p class="unknown-desc">
+        Daxil etdiyiniz məlumatlar sistemdəki qeydlərlə uyğun gəlmir və ya hələ
+        qeydiyyatdan keçməmisiniz. Zəhmət olmasa yenidən qeydiyyatdan keçin.
+      </p>
+      <button class="unknown-btn" onclick="redirectToRegister()">
+        Yenidən Qeydiyyat Keç
+      </button>
+    </div>
+
+    <script>
+      function redirectToRegister() {
+        localStorage.setItem("openRegisterModal", "true");
+        window.location.href = "index.html";
+      }
+    </script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
