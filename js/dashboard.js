@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
+//  BU kisimda da yapay zekadan arasdirma yapdim
 function toggleMobileMenu() {
   const sidebar = document.querySelector(".sidebar");
   const backdrop = document.getElementById("sidebarBackdrop");
@@ -258,6 +258,8 @@ function renderActivities() {
     return;
   }
 
+
+  // BU KISIMDA YAPAY  ZEKADAN DESTEK ALDIM
   const activities = JSON.parse(stored);
   container.innerHTML = "";
 
